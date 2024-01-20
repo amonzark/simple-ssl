@@ -1,0 +1,43 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: echo-app
+  labels:
+    app: echo
+spec:
+  containers:
+    - name: echo-app
+      image: 'kicbase/echo-server:1.0'
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: echo-service
+spec:
+  selector:
+    app: echo
+  ports:
+    - port: 8080
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: echo-ingress
+spec:
+  rules:
+    - host: echo.app
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: echo-service
+                port:
+                  number: 8080
+          
+---

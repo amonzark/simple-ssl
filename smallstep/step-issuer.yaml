@@ -1,0 +1,19 @@
+---
+apiVersion: certmanager.step.sm/v1beta1
+kind: StepIssuer
+metadata:
+  name: step-issuer
+  namespace: default
+spec:
+  # The CA URL:
+  url: https://step-certificates.default.svc.cluster.local
+  # The base64 encoded version of the CA root certificate in PEM format:
+  caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJ3ekNDQVdxZ0F3SUJBZ0lSQU9ITVdZVHhSdDkzZitnLzFSNzQydzB3Q2dZSUtvWkl6ajBFQXdJd1FERWEKTUJnR0ExVUVDaE1SVTNSbGNDQkRaWEowYVdacFkyRjBaWE14SWpBZ0JnTlZCQU1UR1ZOMFpYQWdRMlZ5ZEdsbQphV05oZEdWeklGSnZiM1FnUTBFd0hoY05NalF3TVRFNU1UVTFNVEUxV2hjTk16UXdNVEUyTVRVMU1URTFXakJBCk1Sb3dHQVlEVlFRS0V4RlRkR1Z3SUVObGNuUnBabWxqWVhSbGN6RWlNQ0FHQTFVRUF4TVpVM1JsY0NCRFpYSjAKYVdacFkyRjBaWE1nVW05dmRDQkRRVEJaTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEEwSUFCT2hoZVh3RgpleTcwSVl2VjhnT1NLNGJkQkt5WDBWdDBJNlBVSkduN1lsL1UxTWpObm0va0JqNlRYL3lrWkppY1AyZUZ1ZVFCCkJTR2c0ZnJXSExNV2VRMmpSVEJETUE0R0ExVWREd0VCL3dRRUF3SUJCakFTQmdOVkhSTUJBZjhFQ0RBR0FRSC8KQWdFQk1CMEdBMVVkRGdRV0JCUkJPN0NVeENvS1N4SFVqK2xGbnZMRmx4eDl2ekFLQmdncWhrak9QUVFEQWdOSApBREJFQWlCS0NJQURlczdBOFRGYW1DK0JmUy9QdmVidG5kSE5WVGJKbEsyZ3FwRXpBQUlnQTJOS3djTlVBeUhqCjUrL3A3ZDdzdVFxRVk4Z1k4VmZsTndmM2FLMXJ4cWM9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+  # The provisioner name, kid, and a reference to the provisioner password secret:
+  provisioner:
+    name: admin
+    kid: PoaQI-KrdwVtxKvgzy41mU4Ts4XQJwva_cnPeaNxzyo
+    passwordRef:
+      name: step-certificates-provisioner-password
+      key: 1s3821Kd7CgqOU7DJcN7oFmCAmX8lnx9%
+---
