@@ -162,8 +162,15 @@ and cert       │ tls.key: **priv key** │          │         │ name: echo
       NAME                           READY   STATUS      RESTARTS        AGE
       echo-app                       1/1     Running     0               87m
       ```
+      ```
+      kubectl get ingress
+    
+      NAME           CLASS   HOSTS      ADDRESS          PORTS     AGE
+      echo-ingress   nginx   echo.app   172.27.166.228   80, 443   108s
+      ```
 4. Add your dns to `/etc/hosts`
-5. In my case I run minikube with ```--driver=docker``` so I need to run a tunnel in different terminal
+5. Try access the dns in your browser
+6. In my case I run minikube with ```--driver=docker``` so I need to run a tunnel in different terminal
    ```minikube tunnel```
    docs detail at (https://base64.guru/converter/encode/image) at Ingress tab
 
